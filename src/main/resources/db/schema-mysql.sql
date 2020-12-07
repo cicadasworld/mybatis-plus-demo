@@ -1,0 +1,19 @@
+CREATE DATABASE  IF NOT EXISTS `mybatis_plus`;
+USE `mybatis_plus`;
+
+--
+-- Table structure for table `user`
+--
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`
+(
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+	`name` VARCHAR(30) NULL DEFAULT NULL COMMENT '姓名',
+	`age` INT(11) NULL DEFAULT NULL COMMENT '年龄',
+	`email` VARCHAR(50) NULL DEFAULT NULL COMMENT '邮箱',
+    `create_time` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+    `version` INT(10) NULL DEFAULT 1 COMMENT '乐观锁',
+    `deleted` INT(1) NULL DEFAULT 0 COMMENT '逻辑删除',
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
